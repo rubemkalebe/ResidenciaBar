@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import model.AbstractModelJPA;
 import repository.AbstractRepository;
 
 /**
@@ -11,7 +12,7 @@ import repository.AbstractRepository;
  *
  * @param <T> Tipo da Entidade
  */
-public class AbstractController<T> {
+public class AbstractController<T extends AbstractModelJPA> {
 
 	/**
 	 * Repositório de dados

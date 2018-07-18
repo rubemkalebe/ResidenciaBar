@@ -3,7 +3,9 @@ package view;
 import java.util.List;
 
 import controller.AbstractController;
+import model.AbstractModelJPA;
 import repository.AbstractRepository;
+import repository.AbstractRepositoryJPA;
 
 /**
  * Padrão para view.
@@ -12,7 +14,7 @@ import repository.AbstractRepository;
  *
  * @param <T>
  */
-public class AbstractView<T> {
+public class AbstractView<T extends AbstractModelJPA> {
 
 	/**
 	 * 
@@ -27,8 +29,13 @@ public class AbstractView<T> {
 	/**
 	 * 
 	 */
-	public AbstractView() {
-		repositoryAbstract = new AbstractRepository<T>();
+	private Class<T> entity;
+	
+	/**
+	 * 
+	 */
+	public AbstractView(Class<T> entity) {
+		repositoryAbstract = new AbstractRepositoryJPA<T>(entity);
 		abstractController = new AbstractController<T>(repositoryAbstract);
 	}
 
@@ -46,6 +53,14 @@ public class AbstractView<T> {
 		this.abstractController = abstractController;
 	}
 	
+	public Class<T> getEntity() {
+		return entity;
+	}
+
+	public void setEntity(Class<T> entity) {
+		this.entity = entity;
+	}
+
 	/**
 	 * @return
 	 */

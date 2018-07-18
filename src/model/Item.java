@@ -1,6 +1,9 @@
 package model;
 
-public class Item extends AbstractModel {
+import javax.persistence.Entity;
+
+@Entity
+public class Item extends AbstractModelJPA {
 	
 	private String descricao;
 	

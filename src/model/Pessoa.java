@@ -1,6 +1,9 @@
 package model;
 
-public class Pessoa extends AbstractModel {
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+public class Pessoa extends AbstractModelJPA {
 
 	private String nome;
 

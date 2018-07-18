@@ -2,14 +2,24 @@ package model;
 
 import java.util.List;
 
-public class Conta extends AbstractModel {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Conta extends AbstractModelJPA {
 	
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<ItemConta> itens;
 	
+	@OneToOne
 	private Garcon garcon;
 	
+	@OneToOne
 	private Cliente cliente;
 	
+	@OneToOne
 	private Mesa mesa;
 
 	public List<ItemConta> getItens() {

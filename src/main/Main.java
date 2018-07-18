@@ -59,7 +59,6 @@ public class Main {
 	
 	public static void addItem() {
 		itemView.addItem(
-				Integer.parseInt(JOptionPane.showInputDialog("Id")),
 				JOptionPane.showInputDialog("Descrição"),
 				JOptionPane.showInputDialog("Marca"),
 				Double.parseDouble(JOptionPane.showInputDialog("Valor"))
@@ -69,7 +68,6 @@ public class Main {
 	
 	public static void addGarcon() {
 		garconView.addGarcon(
-				Integer.parseInt(JOptionPane.showInputDialog("Id")),
 				JOptionPane.showInputDialog("Nome"),
 				JOptionPane.showInputDialog("Matrícula"),
 				Double.parseDouble(JOptionPane.showInputDialog("Salário"))
@@ -79,7 +77,6 @@ public class Main {
 	
 	public static void addMesa() {
 		mesaView.addMesa(
-				Integer.parseInt(JOptionPane.showInputDialog("Id")),
 				Integer.parseInt(JOptionPane.showInputDialog("Número"))
 		);
 		JOptionPane.showMessageDialog(null, mesaView.getAbstractController().fetchAll());
@@ -87,7 +84,6 @@ public class Main {
 	
 	public static void addCliente() {
 		clienteView.addCliente(
-				Integer.parseInt(JOptionPane.showInputDialog("Id")),
 				JOptionPane.showInputDialog("Nome"),
 				JOptionPane.showInputDialog("CPF")
 		);
@@ -95,7 +91,6 @@ public class Main {
 	}
 	
 	public static void addConta() {
-		int contaId = Integer.parseInt(JOptionPane.showInputDialog("Id"));
 		Garcon g = garconView.findById(Integer.parseInt(JOptionPane.showInputDialog("Garcon id")));
 		Cliente c = clienteView.findById(Integer.parseInt(JOptionPane.showInputDialog("Cliente id")));
 		Mesa m = mesaView.findById(Integer.parseInt(JOptionPane.showInputDialog("Mesa id")));
@@ -108,7 +103,6 @@ public class Main {
 			if(!(itensStr.length() > 0)) break;
 			
 			ItemConta itemConta = new ItemConta();
-			itemConta.setId(contaId);
 			String[] l = itensStr.split("-");
 			
 			itemConta.setItem(itemView.findById(Integer.parseInt(l[0])));
@@ -116,7 +110,7 @@ public class Main {
 			itens.add(itemConta);
 		} while(true);
 		
-		contaView.addConta(contaId, itens, g, c, m);
+		contaView.addConta(itens, g, c, m);
 		
 		JOptionPane.showMessageDialog(null, contaView.getAbstractController().fetchAll());
 	}

@@ -1,6 +1,9 @@
 package model;
 
-public class Mesa extends AbstractModel{
+import javax.persistence.Entity;
+
+@Entity
+public class Mesa extends AbstractModelJPA{
 
 	private int numero;
 

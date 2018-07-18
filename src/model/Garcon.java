@@ -1,5 +1,8 @@
 package model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Garcon extends Pessoa {
 
 	private String matricula;

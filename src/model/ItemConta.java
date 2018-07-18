@@ -1,9 +1,16 @@
 package model;
 
-public class ItemConta extends AbstractModel {
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+@Entity
+public class ItemConta extends AbstractModelJPA {
 	
+	@ManyToOne
 	private Conta conta;
 	
+	@OneToOne
 	private Item item;
 	
 	private int quantidade;
