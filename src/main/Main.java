@@ -27,7 +27,13 @@ public class Main {
 		int option;
 	
 		do {
-			option = Integer.parseInt(JOptionPane.showInputDialog("Digite a opÃ§Ã£o"));
+			option = Integer.parseInt(JOptionPane.showInputDialog("Digite a opção\n"
+					+ "1 - Adicionar Item\n"
+					+ "2 - Adicionar Garçon\n"
+					+ "3 - Adicionar Mesa\n"
+					+ "4 - Adicionar Cliente\n"
+					+ "5 - Adicionar Conta\n"
+					+ "0 - Sair"));
 			
 			switch (option) {
 			case 1:
@@ -59,46 +65,48 @@ public class Main {
 	
 	public static void addItem() {
 		itemView.addItem(
-				JOptionPane.showInputDialog("DescriÃ§Ã£o"),
-				JOptionPane.showInputDialog("Marca"),
-				Double.parseDouble(JOptionPane.showInputDialog("Valor"))
+				JOptionPane.showInputDialog("Descrição do item"),
+				JOptionPane.showInputDialog("Marca do item"),
+				Double.parseDouble(JOptionPane.showInputDialog("Valor do item"))
 		);
 		JOptionPane.showMessageDialog(null, itemView.getAbstractController().fetchAll());
 	}
 	
 	public static void addGarcon() {
 		garconView.addGarcon(
-				JOptionPane.showInputDialog("Nome"),
-				JOptionPane.showInputDialog("MatrÃ­cula"),
-				Double.parseDouble(JOptionPane.showInputDialog("SalÃ¡rio"))
+				JOptionPane.showInputDialog("Nome do garçon"),
+				JOptionPane.showInputDialog("CPF do cliente"),
+				JOptionPane.showInputDialog("Matrícula do garçon"),
+				Double.parseDouble(JOptionPane.showInputDialog("Salário"))
 		);
 		JOptionPane.showMessageDialog(null, garconView.getAbstractController().fetchAll());
 	}
 	
 	public static void addMesa() {
 		mesaView.addMesa(
-				Integer.parseInt(JOptionPane.showInputDialog("NÃºmero"))
+				Integer.parseInt(JOptionPane.showInputDialog("Número da mesa"))
 		);
 		JOptionPane.showMessageDialog(null, mesaView.getAbstractController().fetchAll());
 	}
 	
 	public static void addCliente() {
 		clienteView.addCliente(
-				JOptionPane.showInputDialog("Nome"),
-				JOptionPane.showInputDialog("CPF")
+				JOptionPane.showInputDialog("Nome do cliente"),
+				JOptionPane.showInputDialog("CPF do cliente")
 		);
 		JOptionPane.showMessageDialog(null, clienteView.getAbstractController().fetchAll());
 	}
 	
 	public static void addConta() {
-		Garcon g = garconView.findById(Integer.parseInt(JOptionPane.showInputDialog("Garcon id")));
-		Cliente c = clienteView.findById(Integer.parseInt(JOptionPane.showInputDialog("Cliente id")));
-		Mesa m = mesaView.findById(Integer.parseInt(JOptionPane.showInputDialog("Mesa id")));
+		Garcon g = garconView.findById(Integer.parseInt(JOptionPane.showInputDialog("Id do Garcon")));
+		Cliente c = clienteView.findById(Integer.parseInt(JOptionPane.showInputDialog("Id do Cliente")));
+		Mesa m = mesaView.findById(Integer.parseInt(JOptionPane.showInputDialog("Id da Mesa")));
 		
 		List<ItemConta> itens = new ArrayList<ItemConta>();
 		String itensStr = "";
 		do {
-			itensStr = JOptionPane.showInputDialog("itemID-quantidade");
+			itensStr = JOptionPane.showInputDialog("Entre com os itens no formato itemID-quantidade\n"
+					+ "Deixe em branco e confirme para finalizar a adição de itens");
 			
 			if(!(itensStr.length() > 0)) break;
 			

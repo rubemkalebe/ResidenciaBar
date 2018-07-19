@@ -56,7 +56,12 @@ public class Conta extends AbstractModelJPA {
 
 	@Override
 	public String toString() {
-		return "Conta [itens=" + itens + ", garcon=" + garcon + ", cliente=" + cliente + ", mesa=" + mesa + "]";
+		double total = 0.0;
+		for(ItemConta i : itens) {
+			total += i.getValorTotal();
+		}
+		
+		return "Conta [total=" + String.valueOf(total) + ", garcon=" + garcon + ", cliente=" + cliente + ", mesa=" + mesa + "]\n";
 	}
 
 }

@@ -18,6 +18,7 @@ public class ContaView extends AbstractView<Conta> {
 		Conta conta = new Conta();
 		conta.setItens(itens);
 		conta.setGarcon(g);
+		conta.setCliente(c);
 		conta.setMesa(m);
 		
 		this.getAbstractController().add(conta);

@@ -8,9 +8,10 @@ public class GarconView extends AbstractView<Garcon> {
 		super(Garcon.class);
 	}
 
-	public void addGarcon(String nome, String matricula, double salario) {
+	public void addGarcon(String nome, String cpf, String matricula, double salario) {
 		Garcon garcon = new Garcon();
 		garcon.setNome(nome);
+		garcon.setCpf(cpf);
 		garcon.setMatricula(matricula);
 		garcon.setSalario(salario);
 		
