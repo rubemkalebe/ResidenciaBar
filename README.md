@@ -1,5 +1,4 @@
 # Residencia Bar
-=========
 
 ## Apresentação ##
 
